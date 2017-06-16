@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
-from .models import Question
+from polls.models import Question
 
 
 class QuestionModelTests(TestCase):
