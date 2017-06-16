@@ -3,7 +3,7 @@ python:
   - "3.5"
 
 env:
-  - DJANGO_VERSION=1.7.8
+  - DJANGO_VERSION=1.11.2
 
 before_install:
   - export DJANGO_SETTINGS_MODULE=mysite.settings
