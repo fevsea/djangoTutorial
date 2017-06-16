@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from polls.models import Question, Choice
@@ -43,11 +44,15 @@ def vote(request, question_id):
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        # Redisplay the question voting form.
-        return render(request, 'polls/detail.html', {
+        dict = {
             'question': question,
-            'error_message': "You didn't select a choice.",
-        })
+            # Translators: Error when POSt and not aption selected
+            'error_message': _("You didn't select a choice."),
+        }
+
+        # Redisplay the question voting form.
+        return render(request, 'polls/detail.html', dict)
+
     else:
         selected_choice.votes = F('votes') + 1  # F -> No race condition
         selected_choice.save()
@@ -55,3 +60,12 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+# text = ungettext(
+#     'There is %(count)d %(name)s available.',
+#     'There are %(count)d %(name)s available.',
+#     count
+# ) % {
+#     'count': count,
+#     'name': name
+# }
