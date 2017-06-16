@@ -137,15 +137,3 @@ class QuestionTranslateTests(TestCase):
         original = "This is the title."
         translated = _(original)
         self.assertNotEqual(original, translated, "Cannot translate to es")
-
-    def test_es_locale_working_html(self):
-        """
-        The detail view of a question with a pub_date in the future
-        returns a 404 not found.
-        """
-        self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: 'es'})
-        response = self.client.get(reverse('polls:index'))
-        original = "This is the title."
-        translated = _(original)
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, translated)

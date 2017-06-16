@@ -12,7 +12,6 @@ before_install:
 
 install:
   - pip install django==$DJANGO_VERSION
-  - cd djangoTutorial && django-admin.py compilemessages && cd ..
 
 script:
   - python manage.py test
