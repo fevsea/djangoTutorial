@@ -14,5 +14,6 @@ install:
   - pip install django==$DJANGO_VERSION
 
 script:
+  - django-admin compilemessages
   - python manage.py test
 
