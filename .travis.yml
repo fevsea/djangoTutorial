@@ -1,12 +1,10 @@
- language: python
- python:
-      - "3.5"
+language: python
+python:
+  - "3.5"
 
 env:
-      - DJANGO_VERSION=1.7.8
-install:
-      - pip install -r requirements.txt
+  - DJANGO_VERSION=1.7.8
 
 script:
-      - python manage.py test
+  - python manage.py test
       
