@@ -1,8 +1,10 @@
 import datetime
 
+from django.conf import settings
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import ugettext as _
 
 from .models import Question
 
@@ -124,3 +126,26 @@ class QuestionDetailViewTests(TestCase):
         url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
+
+
+class QuestionTranslateTests(TestCase):
+    def test_es_locale_working(self):
+        """
+        The detail view of a question with a pub_date in the future
+        returns a 404 not found.
+        """
+        original = "This is the title."
+        translated = _(original)
+        self.assertNotEqual(original, translated, "Cannot translate to es")
+
+    def test_es_locale_working_html(self):
+        """
+        The detail view of a question with a pub_date in the future
+        returns a 404 not found.
+        """
+        self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: 'es'})
+        response = self.client.get(reverse('polls:index'))
+        original = "This is the title."
+        translated = _(original)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, translated)

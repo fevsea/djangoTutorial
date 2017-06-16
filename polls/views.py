@@ -44,14 +44,14 @@ def vote(request, question_id):
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        dict = {
+        data = {
             'question': question,
             # Translators: Error when POSt and not aption selected
             'error_message': _("You didn't select a choice."),
         }
 
         # Redisplay the question voting form.
-        return render(request, 'polls/detail.html', dict)
+        return render(request, 'polls/detail.html', data)
 
     else:
         selected_choice.votes = F('votes') + 1  # F -> No race condition
