@@ -5,6 +5,15 @@ python:
 env:
   - DJANGO_VERSION=1.7.8
 
+before_install:
+  - export DJANGO_SETTINGS_MODULE=mysite.settings
+  - export PYTHONPATH=$HOME/builds/fevsea/djangoTutorial
+  - export PIP_USE_MIRRORS=true
+
+install:
+  - pip install -r requirements.txt
+  - pip install django==$DJANGO_VERSION --quiet
+
 script:
   - python manage.py test
       
