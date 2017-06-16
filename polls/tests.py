@@ -129,11 +129,13 @@ class QuestionDetailViewTests(TestCase):
 
 
 class QuestionTranslateTests(TestCase):
-    def test_es_locale_working(self):
+    def test_es_locale_working_html(self):
         """
-        The detail view of a question with a pub_date in the future
-        returns a 404 not found.
+        Translation works on es
         """
+        self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: 'es'})
+        response = self.client.get(reverse('polls:index'))
         original = "This is the title."
         translated = _(original)
-        self.assertNotEqual(original, translated, "Cannot translate to es")
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, translated)
