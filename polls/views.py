@@ -11,6 +11,18 @@ from polls.models import Question, Choice
 
 
 class IndexView(generic.ListView):
+    """
+       Display all :model:`polls.Questions`.
+
+       **Context**
+
+       ``polls``
+           latests_question_list
+
+       **Template:**
+
+       :template:`polls/index.html`
+       """
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
@@ -25,6 +37,18 @@ class IndexView(generic.ListView):
 
 
 class DetailView(generic.DetailView):
+    """
+       Detalled view of a :model:`polls.Questions`.
+
+       **Context**
+
+       ``polls``
+           question
+
+       **Template:**
+
+       :template:`polls/detail.html`
+       """
     model = Question
     template_name = 'polls/detail.html'
 
@@ -41,6 +65,19 @@ class ResultsView(generic.DetailView):
 
 
 def vote(request, question_id):
+    """
+       Votes for a :model:`polls.Choice`.
+
+       **Context**
+
+       ``polls``
+           question
+           error_message
+
+       **Template:**
+
+       :template:`polls/detail.html`
+       """
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
@@ -73,6 +110,14 @@ def vote(request, question_id):
 
 
 def tests(request):
+    """
+       View to make tests with templates
+
+
+       **Template:**
+
+       :template:`polls/tests.html`
+       """
     context = {
         "title": _("tests"),
         "second": "second",

@@ -6,11 +6,18 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Question(models.Model):
+    """
+        Sotres a question with severals :model:`polls.Choice`
+    """
     question_text = models.CharField(verbose_name=_('question text'), max_length=200, help_text=_("I'm a help text"))
     pub_date = models.DateTimeField(_('date published'))
 
 
     def was_published_recently(self):
+        """
+        Sets if was published in the last day
+        :return:
+        """
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
@@ -27,6 +34,9 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
+    """
+        Represents a possible aswer for a :model:`poll.Question` and their votes
+    """
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(_("option"), max_length=200)
     votes = models.IntegerField(_("votes"), default=0)
