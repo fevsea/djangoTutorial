@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-16 19:01+0200\n"
+"POT-Creation-Date: 2017-06-21 15:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,43 +18,80 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: mysite/settings.py:123
+#: mysite/settings.py:124
 msgid "Spanish"
 msgstr "Español"
 
-#: mysite/settings.py:124
+#: mysite/settings.py:125
 msgid "English"
 msgstr "Ingles"
+
+#: polls/admin.py:16
+msgid "Date information"
+msgstr "Información sobre la fecha"
+
+#: polls/admin.py:25
+msgid "Polls administration"
+msgstr "Administració de enquestas"
+
+#: polls/admin.py:26
+msgid "Polls admin site"
+msgstr "Sitio de administración de enquestas"
+
+#: polls/apps.py:7
+msgctxt "app name"
+msgid "polls"
+msgstr "enquestas"
+
+#: polls/models.py:9
+msgid "question text"
+msgstr "texto pregunta"
+
+#: polls/models.py:9
+msgid "I'm a help text"
+msgstr "Soy un texto de ayuda"
 
 #: polls/models.py:10
 msgid "date published"
 msgstr "fecha publicación"
 
-#: polls/models.py:18
+#: polls/models.py:19
 msgid "Published recently?"
 msgstr "¿Publicación reciente?"
 
-#: polls/models.py:24
+#: polls/models.py:25
 msgid "question"
 msgstr "pregunta"
 
-#: polls/models.py:25
+#: polls/models.py:26
 msgid "questions"
 msgstr "preguntas"
 
-#: polls/models.py:37
+#: polls/models.py:31
+msgid "option"
+msgstr "opción"
+
+#: polls/models.py:32
+msgid "votes"
+msgstr "votos"
+
+#: polls/models.py:38
 msgid "choice"
 msgstr "opción"
 
-#: polls/models.py:38
+#: polls/models.py:39
 msgid "choices"
 msgstr "opciones"
 
-#: polls/templates/polls/index.html:7
+#: polls/templates/polls/index.html:8
 msgid "This is the title."
 msgstr "Este es el título"
 
 #. Translators: Error when POSt and not aption selected
-#: polls/views.py:50
+#: polls/views.py:51
 msgid "You didn't select a choice."
 msgstr "No ha seleccionado ninguna opción."
+
+#: polls/views.py:77
+msgid "Tests"
+msgstr "Pruevas"

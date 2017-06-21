@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 
 from polls.models import Question, Choice
 
@@ -12,7 +13,7 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ('question_text', 'pub_date', 'was_published_recently')
     fieldsets = [
         (None, {'fields': ['question_text']}),
-        ('Date information', {'fields': ['pub_date']}),
+        (_('Date information'), {'fields': ['pub_date']}),
     ]
     inlines = [ChoiceInline]
     list_filter = ['pub_date']  # Filter sidebar
@@ -21,5 +22,5 @@ class QuestionAdmin(admin.ModelAdmin):
 
 admin.site.register(Question, QuestionAdmin)
 
-admin.site.site_header = 'Polls administration'
-admin.site.site_title = 'Polls admin site'
+admin.site.site_header = _('Polls administration')
+admin.site.site_title = _('Polls admin site')

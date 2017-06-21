@@ -1,9 +1,10 @@
 from django.db.models import F
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.template.loader import get_template
 from django.urls import reverse
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 from django.views import generic
 
 from polls.models import Question, Choice
@@ -69,3 +70,11 @@ def vote(request, question_id):
 #     'count': count,
 #     'name': name
 # }
+
+
+def tests(request):
+    context = {
+        "title": _("tests"),
+        "second": "second",
+    }
+    return render(request, 'polls/tests.html', context)
