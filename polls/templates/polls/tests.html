@@ -10,7 +10,7 @@
     <title>{{ title|title }}</title>
 </head>
 <body>
-<h1>{% trans "Still works:" context "Main test page" %} {% now "jS \o\f F Y H:i" %} </h1>
+<h1>{% trans "Still works:" context "Main test page" %} {% now "jS F Y H:i" as date %} </h1>
 {% lorem 2 p %}
 <p> {{ get_language_info_list|pprint }} </p>
 

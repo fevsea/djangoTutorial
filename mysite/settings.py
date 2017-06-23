@@ -1,4 +1,5 @@
 from django.utils.translation import ugettext_lazy as _
+from .secrets import *
 
 """
 Django settings for mysite project.
@@ -22,7 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'amw7_&9dwh&=1-2d2oodmbyayd0fdl&+8wnh&h$6r=-yn%6bez'
+# This resides on secrets.py
+#SECRET_KEY = 'amw7_&9dwh&=1-2d2oodmbyayd0fdl&+8wnh&h$6r=-yn%6bez'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -112,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Europe/Madrid'
 
