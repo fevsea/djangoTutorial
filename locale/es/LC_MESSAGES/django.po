@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-21 15:39+0200\n"
+"POT-Creation-Date: 2017-06-23 13:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: mysite/settings.py:124
+#: mysite/settings.py:126
 msgid "Spanish"
 msgstr "Español"
 
-#: mysite/settings.py:125
+#: mysite/settings.py:127
 msgid "English"
 msgstr "Ingles"
 
@@ -43,43 +43,43 @@ msgctxt "app name"
 msgid "polls"
 msgstr "enquestas"
 
-#: polls/models.py:9
+#: polls/models.py:12
 msgid "question text"
 msgstr "texto pregunta"
 
-#: polls/models.py:9
+#: polls/models.py:12
 msgid "I'm a help text"
 msgstr "Soy un texto de ayuda"
 
-#: polls/models.py:10
+#: polls/models.py:13
 msgid "date published"
 msgstr "fecha publicación"
 
-#: polls/models.py:19
+#: polls/models.py:26
 msgid "Published recently?"
 msgstr "¿Publicación reciente?"
 
-#: polls/models.py:25
+#: polls/models.py:35
 msgid "question"
 msgstr "pregunta"
 
-#: polls/models.py:26
+#: polls/models.py:36
 msgid "questions"
 msgstr "preguntas"
 
-#: polls/models.py:31
+#: polls/models.py:44
 msgid "option"
 msgstr "opción"
 
-#: polls/models.py:32
+#: polls/models.py:45
 msgid "votes"
 msgstr "votos"
 
-#: polls/models.py:38
+#: polls/models.py:51
 msgid "choice"
 msgstr "opción"
 
-#: polls/models.py:39
+#: polls/models.py:52
 msgid "choices"
 msgstr "opciones"
 
@@ -87,11 +87,23 @@ msgstr "opciones"
 msgid "This is the title."
 msgstr "Este es el título"
 
+#: polls/templates/polls/tests.html:11
+msgctxt "Main test page"
+msgid "Still works:"
+msgstr "Todavia funciona:"
+
+#: polls/templates/polls/tests.html:16
+#, python-format
+msgid "This is a URL: %(the_url)s"
+msgstr "Esto es una URL: %(the_url)s"
+
 #. Translators: Error when POSt and not aption selected
-#: polls/views.py:51
+#: polls/views.py:89
 msgid "You didn't select a choice."
 msgstr "No ha seleccionado ninguna opción."
 
-#: polls/views.py:77
-msgid "Tests"
+#: polls/views.py:125
+#, fuzzy
+#| msgid "Tests"
+msgid "tests"
 msgstr "Pruevas"

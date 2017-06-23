@@ -1,12 +1,41 @@
+{% load i18n %}
+{% load humanize %}
+
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     {# Capitalize the string #}
     <title>{{ title|title }}</title>
 </head>
 <body>
-<h1>Still works </h1>
-<h1> </h1>
+<h1>{% trans "Still works:" context "Main test page" %} {% now "jS \o\f F Y H:i" %} </h1>
+{% lorem 2 p %}
+<p> {{ get_language_info_list|pprint }} </p>
+
+{% url 'polls:tests' as the_url %}
+{% blocktrans trimmed %}
+    This is a URL: {{ the_url }}
+{% endblocktrans %}
+
+<form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}"/>
+    <select name="language">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_translated }} ({{ language.code }})
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Go"/>
+</form>
+
+<h2>Localization:</h2>
+<p>{{ "1000000000.2"|intcomma }}</p>
+
 </body>
 </html>

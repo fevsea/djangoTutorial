@@ -1,7 +1,6 @@
 from django.db.models import F
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from django.template.loader import get_template
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import ugettext as _
@@ -99,6 +98,7 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
+
 # text = ungettext(
 #     'There is %(count)d %(name)s available.',
 #     'There are %(count)d %(name)s available.',
@@ -118,8 +118,12 @@ def tests(request):
 
        :template:`polls/tests.html`
        """
-    context = {
+    # template = get_template('polls/tests.html')
+
+    c = {
         "title": _("tests"),
         "second": "second",
+        "tt": request,
     }
-    return render(request, 'polls/tests.html', context)
+
+    return render(request, 'polls/tests.html', c)
